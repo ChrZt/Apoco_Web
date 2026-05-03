@@ -94,4 +94,24 @@ public class SimpleList<T> {
         return false;
     }
     
+    /**
+     * Busca y devuelve el nodo que esta en una posicion especifica
+     * @param index la posicion numerica (empezando desde 0)
+     * @return el nodo en esa posicion, o null si el indice no existe
+     */
+    public Node<T> getNodeAt(int index) {
+        // Validacion de seguridad para evitar errores
+        if (index < 0 || index >= size) {
+            return null;
+        }
+        
+        Node<T> current = head;
+        int count = 0;
+        while (current != null && count < index) {
+            current = current.getNext();
+            count++;
+        }
+        return current;
+    }
+    
 }

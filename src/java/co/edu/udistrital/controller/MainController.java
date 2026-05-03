@@ -70,8 +70,15 @@ public class MainController {
                 }
                 msg = """
                       --MENU APOCO--
-                      1. Ordenar con Bubble Sort
-                      2. Ordenar con Quick Sort
+                      Ordenar por
+                      1. Insertion Sort
+                      2. Selection Sort
+                      3. Ordenar con Bubble Sort
+                      4. Cocktail Sort
+                      5. Comb Sort
+                      6. Shell Sort
+                      7. Batcher odd-even mergesort
+                      8. Ordenar con Quick Sort
                       Elija un ordenamiento:""";
                 String option2 = view.readData(msg);
 
@@ -80,9 +87,27 @@ public class MainController {
 
                 switch(option2){
                     case "1":
-                        algorithm = new BubbleSort<>();
+                        algorithm = new InsertionSort<>();
                         break;
                     case "2":
+                        algorithm = new SelectionSort<>();
+                        break;
+                    case "3":
+                        algorithm = new BubbleSort<>();
+                        break;
+                    case "4":
+                        algorithm = new CocktailSort<>();
+                        break;
+                    case "5":
+                        algorithm = new CombSort<>();
+                        break;
+                    case "6":
+                        algorithm = new ShellSort<>();
+                        break;    
+                    case "7":
+                        algorithm = new OddEvenSort<>();
+                        break;
+                    case "8":
                         algorithm = new QuickSort<>();
                         break;
                     default:
