@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package co.edu.udistrital.model.generator;
 
 import co.edu.udistrital.model.structures.SimpleList;
@@ -9,11 +5,16 @@ import co.edu.udistrital.model.entities.*;
 import java.util.Random;
 
 /**
- *
+ * Clase de utilidad para crear datos aleatorios y no hacerlo a mano
  * @author Jimmy86gb
  */
 public class DataGenerator {
     
+    /**
+     * Genera una lista de politicos con nombres y dinero al azar entre $1000 y $5000000
+     * @param size la cantidad de politicos que queremos crear
+     * @return una lista simple llena de politicos
+     */
     public static SimpleList<Politician> generatePoliticians(double size){
         SimpleList<Politician> listP = new SimpleList<>();
         Random ran = new Random();

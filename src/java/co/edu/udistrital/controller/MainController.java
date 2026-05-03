@@ -7,14 +7,25 @@ import co.edu.udistrital.model.entities.*;
 import co.edu.udistrital.model.sort.*;
 import java.util.Comparator;
         
+/**
+ * Controlador principal que maneja la logica y une la vista con el modelo
+ * @author Jimmy86gb
+ */
 public class MainController {
     private MainView view;
     private DataGenerator generator;
+
+    /**
+     * Constructor del controlador, prepara la vista y el generador de datos
+     */
     public MainController(){
         view = new MainView();
         generator= new DataGenerator();
     }
     
+    /**
+     * Metodo que mantiene el menu principal corriendo hasta que el usuario decida salir
+     */
     public void run(){
         System.out.println("hola");
         String option = "0";
@@ -47,7 +58,7 @@ public class MainController {
                 SimpleList<Politician> listP = new SimpleList<>();
                 msg ="""
                      --MENU APOCO--
-                     Elija un tamaño de corruptos:""";
+                     Elija un tamano de corruptos:""";
                 int size = Integer.parseInt(view.readData(msg));
                 listP = generator.generatePoliticians(size);
                 Node<Politician> actual = listP.getHead();
@@ -75,7 +86,7 @@ public class MainController {
                         algorithm = new QuickSort<>();
                         break;
                     default:
-                        view.showMsg("Opción no válida.");
+                        view.showMsg("Opcion no valida.");
                         return; 
                 }
                 // se envia la lista haciendo uso del comparator

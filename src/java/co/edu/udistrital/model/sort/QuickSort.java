@@ -3,10 +3,21 @@ package co.edu.udistrital.model.sort;
 import co.edu.udistrital.model.structures.*;
 import java.util.Comparator;
 
+/**
+ * Algoritmo de ordenamiento rapido (Quick Sort) para lista enlazada
+ * @author Jimmy86gb
+ * @param <T> el tipo de dato que guarda la lista
+ */
 public class QuickSort<T> implements Sorter<T> {
 
     private int iterations; // var global para no perder cuenta en recursvidiad
 
+    /**
+     * Inicia el proceso de ordenar la lista partiendo por mitades
+     * @param list la lista desordenada
+     * @param comparator las reglas de comparacion
+     * @return la cantidad de iteraciones que le tomo ordenar todo
+     */
     @Override
     public int sort(SimpleList<T> list, Comparator<T> comparator) {
         iterations = 0;

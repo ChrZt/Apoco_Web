@@ -1,21 +1,28 @@
 package co.edu.udistrital.model.structures;
 
 /**
- *
+ * Lista simplemente enlazada 
  * @author Jimmy86gb
- * @param <T>
+ * @param <T> el tipo de dato que queremos guardar en la lista
  */
 public class SimpleList<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size;
     
+    /**
+     * Arranca la lista vacia sin nada adentro
+     */
     public SimpleList(){
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
     
+    /**
+     * Mete un dato nuevo al final de la cola
+     * @param data lo que vamos a guardar
+     */
     public void add(T data){
         Node<T> newNode = new Node<>(data);
         if(head == null){
@@ -28,30 +35,58 @@ public class SimpleList<T> {
         size++;
     }
     
+    /**
+     * Devuelve el primer nodo de todos / cabeza
+     * @return el nodo cabeza
+     */
     public Node<T> getHead() {
         return head;
     }
 
+    /**
+     * Cambia a la fuerza quien es el primero
+     * @param head el nuevo nodo inicial
+     */
     public void setHead(Node<T> head) {
         this.head = head;
     }
 
+    /**
+     * Devuelve el ultimo nodo de la fila
+     * @return el nodo cola
+     */
     public Node<T> getTail() {
         return tail;
     }
 
+    /**
+     * Cambia a la fuerza el nodo final
+     * @param tail el nuevo nodo final
+     */
     public void setTail(Node<T> tail) {
         this.tail = tail;
     }
 
+    /**
+     * Devuelve el tamaño de la lista
+     * @return el tamano de la lista
+     */
     public int getSize() {
         return size;
     }
 
+    /**
+     * Cambia el tamaño de la lista
+     * @param size el nuevo tamano
+     */
     public void setSize(int size) {
         this.size = size;
     }
 
+    /**
+     * Revisa si la lista esta vacia
+     * @return verdadero si esta vacia, falso si ya tiene algo
+     */
     public boolean isEmpty() {
         if(getSize() == 0){
             return true;
