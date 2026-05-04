@@ -32,11 +32,12 @@ public class BubbleSort<T> implements Sorter<T> {
             while (current != null && current.getNext() != null) {
                 iterations++; // cuenta la iteracion de la comparacion
                 
-                if (comparator.compare(current.getData(), current.getNextData()) > 0) {
+                if (comparator.compare(current.getData(), 
+                        current.getNextData()) > 0) {
                     // intercambio de datos
                     T temp = current.getData();
                     current.setData(current.getNextData());
-                    current.getNext().setData(temp);
+                    current.setNextData(temp);
                     swapped = true;
                 }
                 

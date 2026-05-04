@@ -20,7 +20,9 @@ public class CocktailSort<T> implements Sorter<T> {
     public int sort(SimpleList<T> list, Comparator<T> comparator) {
         int iterations = 0;
         int n = list.getSize();
-        if (n <= 1) return iterations;
+        if (n <= 1){
+            return iterations;
+        }
         
         boolean swapped;
         int start = 0;
@@ -29,34 +31,37 @@ public class CocktailSort<T> implements Sorter<T> {
         do {
             swapped = false;
             
-            // Viaje de ida (hacia la derecha)
+            // viaje hacia la derecha
             for (int i = start; i < end; i++) {
-                Node<T> actual = list.getNodeAt(i);
-                Node<T> siguiente = actual.getNext();
+                Node<T> current = list.getNodeAt(i);
+                Node<T> next = current.getNext();
                 iterations++;
                 
-                if (comparator.compare(actual.getData(), siguiente.getData()) > 0) {
-                    T temp = actual.getData();
-                    actual.setData(siguiente.getData());
-                    siguiente.setData(temp);
+                if (comparator.compare(current.getData(), 
+                        next.getData()) > 0) {
+                    T temp = current.getData();
+                    current.setData(next.getData());
+                    next.setData(temp);
                     swapped = true;
                 }
             }
-            if (!swapped) break;
+            if (!swapped){
+                break;
+            }
             
             swapped = false;
             end--;
             
-            // Viaje de regreso (hacia la izquierda)
+            // viaje hacia la izquierda
             for (int i = end - 1; i >= start; i--) {
-                Node<T> actual = list.getNodeAt(i);
-                Node<T> siguiente = actual.getNext();
+                Node<T> current = list.getNodeAt(i);
+                Node<T> next = current.getNext();
                 iterations++;
                 
-                if (comparator.compare(actual.getData(), siguiente.getData()) > 0) {
-                    T temp = actual.getData();
-                    actual.setData(siguiente.getData());
-                    siguiente.setData(temp);
+                if (comparator.compare(current.getData(), next.getData()) > 0) {
+                    T temp = current.getData();
+                    current.setData(next.getData());
+                    next.setData(temp);
                     swapped = true;
                 }
             }

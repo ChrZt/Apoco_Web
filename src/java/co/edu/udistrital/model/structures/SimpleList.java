@@ -42,6 +42,11 @@ public class SimpleList<T> {
     public Node<T> getHead() {
         return head;
     }
+    
+    public Node<T> getNextNodeToHead(){
+        Node<T> head = getHead();
+        return head.getNext();
+    }
 
     /**
      * Cambia a la fuerza quien es el primero

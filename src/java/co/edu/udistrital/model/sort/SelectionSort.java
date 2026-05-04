@@ -23,13 +23,16 @@ public class SelectionSort<T> implements Sorter<T> {
             return iterations;
         }
 
-        for (Node<T> current = list.getHead(); current != null; current = current.getNext()) {
+        for (Node<T> current = list.getHead(); current != null; 
+                current = current.getNext()) {
             Node<T> minNode = current;
             
             // Busca el mas pequeno en lo que queda de la lista
-            for (Node<T> search = current.getNext(); search != null; search = search.getNext()) {
+            for (Node<T> search = current.getNext(); search != null; 
+                    search = search.getNext()) {
                 iterations++;
-                if (comparator.compare(search.getData(), minNode.getData()) < 0) {
+                if (comparator.compare(search.getData(), 
+                        minNode.getData()) < 0) {
                     minNode = search;
                 }
             }

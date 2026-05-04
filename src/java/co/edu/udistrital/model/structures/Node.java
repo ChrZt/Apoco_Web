@@ -69,6 +69,15 @@ public class Node<T> {
     }
     
     /**
+     * Atajo para evitar llamado en cascada si queremos setear el dato siguiente
+     * @param data la informacion a asignar a siguiente
+     */
+    public void setNextData(T data) {
+        Node<T> next = getNext();
+        next.setData(data);
+    }
+    
+    /**
      * Pasa el nodo a texto para verlo mas facil
      * @return el texto del dato
      */

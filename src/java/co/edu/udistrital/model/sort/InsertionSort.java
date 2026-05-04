@@ -23,14 +23,15 @@ public class InsertionSort<T> implements Sorter<T> {
             return iterations;
         }
         
-        Node<T> current = list.getHead().getNext();
+        Node<T> current = list.getNextNodeToHead();
         while (current != null) {
             Node<T> search = list.getHead();
             
             // Busca desde el inicio hasta el nodo actual
             while (search != current) {
                 iterations++;
-                if (comparator.compare(search.getData(), current.getData()) > 0) {
+                if (comparator.compare(search.getData(), 
+                        current.getData()) > 0) {
                     // Intercambia los datos para ir empujando el valor
                     T temp = current.getData();
                     current.setData(search.getData());

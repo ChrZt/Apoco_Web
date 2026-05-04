@@ -20,7 +20,9 @@ public class ShellSort<T> implements Sorter<T> {
     public int sort(SimpleList<T> list, Comparator<T> comparator) {
         int iterations = 0;
         int n = list.getSize();
-        if (n <= 1) return iterations;
+        if (n <= 1){
+            return iterations;
+        }
         
         for (int gap = n / 2; gap > 0; gap /= 2) {
             for (int i = gap; i < n; i++) {

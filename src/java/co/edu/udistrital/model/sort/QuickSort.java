@@ -4,7 +4,7 @@ import co.edu.udistrital.model.structures.*;
 import java.util.Comparator;
 
 /**
- * Algoritmo de ordenamiento rapido (Quick Sort) para lista enlazada
+ * Algoritmo de ordenamiento rapido (Quick Sort) para nodos
  * @author Jimmy86gb
  * @param <T> el tipo de dato que guarda la lista
  */
@@ -36,17 +36,20 @@ public class QuickSort<T> implements Sorter<T> {
             Node<T> pivot = partition(start, end, comparator);
 
             // ordenar mitad izquierda desde start hasta antes del pivot
-            Node<T> temp = start;
-            if (temp != pivot) {
+            if (start != pivot) {
+                Node<T> temp = start;
                 // nodo anterior al pivote
-                while (temp.getNext() != pivot) {
+                while (temp != null && temp.getNext() != pivot) {
                     temp = temp.getNext();
                 }
-                quickSortRec(start, temp, comparator);
+                if (temp != null) {
+                    quickSortRec(start, temp, comparator);
+                }
             }
 
             // ordenar mitad derecha desde despues del pivote hasta el final
-            if (pivot != null && pivot.getNext() != null) {
+            // pivot != end es necesario para no salirse del limite de la sub-lista
+            if (pivot != null && pivot != end && pivot.getNext() != null) {
                 quickSortRec(pivot.getNext(), end, comparator);
             }
         }
@@ -58,7 +61,8 @@ public class QuickSort<T> implements Sorter<T> {
         Node<T> i = start;
         Node<T> j = start;
 
-        while (j != end) {
+        // Se agrego j != null por seguridad para evitar el NullPointerException
+        while (j != end && j != null) {
             iterations++;
             
             // si el elemento actual es menor que el pivote
@@ -74,9 +78,11 @@ public class QuickSort<T> implements Sorter<T> {
         }
         
         // coloca el pivote en su posicion final correcta
-        T temp = i.getData();
-        i.setData(end.getData());
-        end.setData(temp);
+        if (i != null) {
+            T temp = i.getData();
+            i.setData(end.getData());
+            end.setData(temp);
+        }
 
         return i; // devuelve el nodo que ahora es el pivote
     }

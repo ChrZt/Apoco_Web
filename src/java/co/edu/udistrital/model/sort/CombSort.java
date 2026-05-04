@@ -20,7 +20,9 @@ public class CombSort<T> implements Sorter<T> {
     public int sort(SimpleList<T> list, Comparator<T> comparator) {
         int iterations = 0;
         int n = list.getSize();
-        if (n <= 1) return iterations;
+        if (n <= 1){
+            return iterations;
+        }
         
         int gap = n;
         boolean swapped = true;
