@@ -2,9 +2,9 @@ package co.edu.udistrital.model.generator;
 
 import co.edu.udistrital.model.structures.SimpleList;
 import co.edu.udistrital.model.entities.*;
-import co.edu.udistrital.model.structures.enums.EnumLastNames;
-import co.edu.udistrital.model.structures.enums.MenEnumNames;
-import co.edu.udistrital.model.structures.enums.WomenEnumNames;
+import co.edu.udistrital.model.enums.EnumLastNames;
+import co.edu.udistrital.model.enums.MenEnumNames;
+import co.edu.udistrital.model.enums.WomenEnumNames;
 import java.util.Random;
 
 /**

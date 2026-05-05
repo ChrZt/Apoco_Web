@@ -1,4 +1,4 @@
-package co.edu.udistrital.model.structures.enums;
+package co.edu.udistrital.model.enums;
 
 /**
  * Enum que contiene los nombres de todas las hombres
