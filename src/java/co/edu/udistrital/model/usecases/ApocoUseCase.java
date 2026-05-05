@@ -37,7 +37,7 @@ public class ApocoUseCase {
         SimpleList<Politician> listP = DataPoliticianGenerator.generatePoliticians(size);
 
         // 3. Preparar el comparador (Lambda descendente por dinero a robar)
-        Comparator<Politician> comparadorDescendente = (Politician p1, Politician p2)
+        Comparator<Politician> comparator = (Politician p1, Politician p2)
                 -> Double.compare(p2.getMoneyToSteal(), p1.getMoneyToSteal());
 
         // 4. Instanciar los algoritmos
@@ -54,16 +54,16 @@ public class ApocoUseCase {
         // 5. Ejecutar la lógica de ordenamiento según el parámetro
         if ("all".equals(algorithmParam)) {
             for (int i = 0; i < algorithms.length - 1; i++) {
-                iterations[i] = algorithms[i].sort(copy, comparadorDescendente);
+                iterations[i] = algorithms[i].sort(copy, comparator);
                 copy = copyList(listP);
             }
 
             // Iteracion final para evitar sobreescritura sin uso
-            iterations[7] = algorithms[7].sort(copy, comparadorDescendente);
+            iterations[7] = algorithms[7].sort(copy, comparator);
             finalSortedList = copy;
         } else {
             int index = Integer.parseInt(algorithmParam);
-            iterations[index] = algorithms[index].sort(copy, comparadorDescendente);
+            iterations[index] = algorithms[index].sort(copy, comparator);
             finalSortedList = copy;
         }
 
