@@ -25,7 +25,7 @@ public class ApocoUseCase {
      *
      * @return el objeto con lo requerido en la vista (DTO)
      */
-    public ApocoDTO procesarPeticion(String sizeParam, String algorithmParam) {
+    public ApocoDTO processPetition(String sizeParam, String algorithmParam) {
 
         // 1. Validar y parsear el tamaño
         int size = 50;

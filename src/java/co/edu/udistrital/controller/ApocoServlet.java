@@ -42,7 +42,7 @@ public class ApocoServlet extends HttpServlet {
         String algorithmParam = request.getParameter("algorithm");
 
         // 2. DELEGAR la lógica al caso de uso
-        ApocoDTO resultado = useCase.procesarPeticion(sizeParam, algorithmParam);
+        ApocoDTO resultado = useCase.processPetition(sizeParam, algorithmParam);
 
         // 3. RETORNAR los resultados a la vista
         request.setAttribute("iteraciones", resultado.getIterations());
