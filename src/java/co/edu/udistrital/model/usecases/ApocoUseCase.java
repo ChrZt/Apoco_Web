@@ -44,7 +44,7 @@ public class ApocoUseCase {
         Sorter<Politician>[] algorithms = new Sorter[]{
             new InsertionSort<>(), new SelectionSort<>(), new BubbleSort<>(),
             new CocktailSort<>(), new CombSort<>(), new ShellSort<>(),
-            new OddEvenSort<>(), new QuickSort<>()
+            new MergeSort<>(), new QuickSort<>()
         };
 
         int[] iterations = new int[8];

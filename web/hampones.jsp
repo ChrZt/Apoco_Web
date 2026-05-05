@@ -77,7 +77,7 @@
                             <option value="5" <%= currentAlgo.equals("5")
                                     ? "selected" : ""%>>Shell Sort</option>
                             <option value="6" <%= currentAlgo.equals("6")
-                                    ? "selected" : ""%>>Odd-Even Sort</option>
+                                    ? "selected" : ""%>>Merge Sort</option>
                             <option value="7" <%= currentAlgo.equals("7")
                                     ? "selected" : ""%>>Quick Sort</option>
                 </select>
@@ -120,7 +120,7 @@
                     <td><%= iteraciones[5]%></td>
                 </tr>
                 <tr>
-                    <td class="nombre-algo">Odd-Even Sort</td>
+                    <td class="nombre-algo">Merge Sort</td>
                     <td><%= iteraciones[6]%></td>
                 </tr>
                 <tr class="fila-gris">
