@@ -27,13 +27,13 @@
     <body>
 
         <div class="controles">
-            <a href="index.jsp">
+            <a href="index.jsp" style="text-decoration: none">
                 <div class="grupo">
                     <label>&nbsp;</label>
-                    <button type="submit">Redirigir a politicos</button>
+                    <button type="submit" style="background-color: #17a2b8;">Redirigir a politicos</button>
                 </div>
             </a>
-            <a href="hampones.jsp">
+            <a href="hampones.jsp" style="text-decoration: none">
                 <div class="grupo">
                     <label>&nbsp;</label>
                     <button type="submit">Redirigir a hampones</button>
