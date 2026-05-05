@@ -12,9 +12,9 @@
 
     SimpleList<Thug> listaOrdenada = (SimpleList<Thug>) request.getAttribute("listaOrdenada");
     String currentRow = request.getAttribute("currentRow") != null
-            ? request.getAttribute("currentRow").toString() : "50";
+            ? request.getAttribute("currentRow").toString() : "5";
     String curretColumn = request.getAttribute("currentColumn") != null
-            ? request.getAttribute("currentColumn").toString() : "50";
+            ? request.getAttribute("currentColumn").toString() : "5";
     String currentAlgo = request.getAttribute("currentAlgo") != null
             ? (String) request.getAttribute("currentAlgo") : "all";
 %>
@@ -23,22 +23,22 @@
     <head>
         <script src="JS/apoco.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Analisis de Ordenamiento APOCO</title>
-        <link rel="stylesheet" type="text/css" href="CSS/style.css">
+        <title>Analisis de Ordenamiento APOCO - Hampones</title>
+        <link rel="stylesheet" type="text/css" href="CSS/hampones.css">
     </head>
     <body>
 
         <div class="controles">
-            <a href="index.jsp">
+            <a href="index.jsp" style="text-decoration: none;">
                 <div class="grupo">
                     <label>&nbsp;</label>
-                    <button type="submit">Redirigir a politicos</button>
+                    <button type="button">Redirigir a politicos</button>
                 </div>
             </a>
-            <a href="hampones.jsp">
+            <a href="hampones.jsp" style="text-decoration: none;">
                 <div class="grupo">
                     <label>&nbsp;</label>
-                    <button type="submit">Redirigir a hampones</button>
+                    <button type="button" style="background-color: #17a2b8;">Redirigir a hampones</button>
                 </div>
             </a>
         </div>
@@ -48,13 +48,15 @@
         <script>imprimirResultado()</script>
         <% }%>
         <!-- Formulario de controles -->
-        <form action="ApocoServlet" method="POST" class="controles">
+        <form action="ThugServlet" method="POST" class="controles">
             <div class="grupo">
-                <label>Número de corruptos:</label>
-                <input type="number" name="row" value="<%= currentRow%>" 
-                       min="1" required>
-                <input type="number" name="column" value="<%= curretColumn%>" 
-                       min="1" required>
+                <label>Dimensiones del Auditorio:</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" name="row" value="<%= currentRow%>" 
+                           min="1" placeholder="Filas" required style="width: 80px;">
+                    <input type="number" name="column" value="<%= curretColumn%>" 
+                           min="1" placeholder="Columnas" required style="width: 80px;">
+                </div>
             </div>
 
             <div class="grupo">
@@ -127,32 +129,41 @@
                 </tr>
             </table>
 
-            <!-- Boton para ver la lista -->
             <% if (listaOrdenada != null) { %>
             <button type="button" class="btn-ver" 
-                    onclick="mostrarLista()">Ver Lista Ordenada Resultante</button>
+                    onclick="mostrarLista()">Ver Auditorio de Hampones</button>
             <% } %>
         </div>
 
-        <!-- Div oculto que tiene la lista final iterada -->
         <% if (listaOrdenada != null) { %>
-        <div id="miLista" class="seccion-lista">
-            <h3 style="text-align:center;">Lista de Políticos Ordenada</h3>
-            <table style="width: 100%;">
-                <tr><th>Nombre</th><th>Dinero a Robar</th></tr>
-                        <%
-                            Node<Politician> actual = listaOrdenada.getHead();
-                            while (actual != null) {
-                                Politician p = actual.getData();
-                        %>
+        <div id="miLista" class="seccion-matriz">
+            <h3 style="text-align:center; color: #333;">Auditorio de Hampones (Matriz <%= currentRow %>x<%= curretColumn %>)</h3>
+            <table class="tabla-matriz">
                 <tr>
-                    <td><%= p.getName()%></td>
-                    <td>$ <%= String.format("%,.2f", p.getMoneyToSteal())%></td>
+                    <%
+                        Node<Thug> actual = listaOrdenada.getHead();
+                        // Parsear el limite de columnas
+                        int colsLimite = Integer.parseInt(curretColumn);
+                        int contador = 0;
+
+                        while (actual != null) {
+                            Thug t = actual.getData();
+                    %>
+                    <td class="celda-hampon">
+                        <span class="h-nombre"><%= t.getName() %></span>
+                        <span class="h-edad">Edad: <%= t.getAge() %> años</span>
+                        <span class="h-dinero">💰 $<%= String.format("%,.2f", t.getStolenMoney()) %></span>
+                    </td>
+                    <%
+                            contador++;
+                            // Si se alcanza el límite de columnas y aún hay datos, se pasa a la siguiente fila
+                            if (contador % colsLimite == 0 && actual.getNext() != null) {
+                                out.print("</tr><tr>");
+                            }
+                            actual = actual.getNext();
+                        }
+                    %>
                 </tr>
-                <%
-                        actual = actual.getNext();
-                    }
-                %>
             </table>
         </div>
         <% }%>
