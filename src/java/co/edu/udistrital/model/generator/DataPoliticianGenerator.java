@@ -27,6 +27,7 @@ public class DataPoliticianGenerator {
         double minMoney = 1000;
         double maxMoney = 5000000;
         int randomUtility = 0;
+        double ranMoney = 0;
         
         //Importar los nombres del enum
         MenEnumNames[] menNames = MenEnumNames.values();
@@ -38,8 +39,7 @@ public class DataPoliticianGenerator {
             randomUtility = ran.nextInt(1);
             
             String name = (randomUtility == 0) ? menNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Politico Corrupto No." + (i + 1) + ")" : womenNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Politico Corrupto No." + (i + 1) + ")" ;
-            double ranMoney = minMoney + (maxMoney - minMoney) * ran.nextDouble();
-            ranMoney = Math.round(ranMoney * 100) / 100;
+            ranMoney = Math.round((minMoney + (maxMoney - minMoney) * ran.nextDouble()) * 100) / 100;
             listP.add(new Politician(name, ranMoney));
         }
         return listP;
