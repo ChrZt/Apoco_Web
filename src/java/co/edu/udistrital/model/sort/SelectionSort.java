@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 /**
  * Algoritmo de ordenamiento por seleccion
+ *
  * @author Jimmy86gb
  * @param <T> el tipo de dato
  */
@@ -12,6 +13,7 @@ public class SelectionSort<T> implements Sorter<T> {
 
     /**
      * Ordena buscando el menor y poniendolo al inicio en cada pasada
+     *
      * @param list la lista a ordenar
      * @param comparator la regla de comparacion
      * @return el numero de iteraciones
@@ -23,20 +25,20 @@ public class SelectionSort<T> implements Sorter<T> {
             return iterations;
         }
 
-        for (Node<T> current = list.getHead(); current != null; 
+        for (Node<T> current = list.getHead(); current != null;
                 current = current.getNext()) {
             Node<T> minNode = current;
-            
+
             // Busca el mas pequeno en lo que queda de la lista
-            for (Node<T> search = current.getNext(); search != null; 
+            for (Node<T> search = current.getNext(); search != null;
                     search = search.getNext()) {
                 iterations++;
-                if (comparator.compare(search.getData(), 
+                if (comparator.compare(search.getData(),
                         minNode.getData()) < 0) {
                     minNode = search;
                 }
             }
-            
+
             // Si encontro uno menor, intercambia los datos
             if (minNode != current) {
                 T temp = current.getData();

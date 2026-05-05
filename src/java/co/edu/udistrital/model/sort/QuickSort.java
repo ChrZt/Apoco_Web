@@ -5,6 +5,7 @@ import java.util.Comparator;
 
 /**
  * Algoritmo de ordenamiento rapido (Quick Sort) para nodos
+ *
  * @author Jimmy86gb
  * @param <T> el tipo de dato que guarda la lista
  */
@@ -14,6 +15,7 @@ public class QuickSort<T> implements Sorter<T> {
 
     /**
      * Inicia el proceso de ordenar la lista partiendo por mitades
+     *
      * @param list la lista desordenada
      * @param comparator las reglas de comparacion
      * @return la cantidad de iteraciones que le tomo ordenar todo
@@ -31,7 +33,7 @@ public class QuickSort<T> implements Sorter<T> {
     // recursivo
     private void quickSortRec(Node<T> start, Node<T> end, Comparator<T> comparator) {
         if (start != end && start != null && end != null) {
-            
+
             // encontrar el pivote y acomodarlo
             Node<T> pivot = partition(start, end, comparator);
 
@@ -64,19 +66,19 @@ public class QuickSort<T> implements Sorter<T> {
         // Se agrego j != null por seguridad para evitar el NullPointerException
         while (j != end && j != null) {
             iterations++;
-            
+
             // si el elemento actual es menor que el pivote
             if (comparator.compare(j.getData(), pivotData) < 0) {
                 // intercambia i con j
                 T temp = i.getData();
                 i.setData(j.getData());
                 j.setData(temp);
-                
+
                 i = i.getNext(); // avanza el limite
             }
             j = j.getNext();
         }
-        
+
         // coloca el pivote en su posicion final correcta
         if (i != null) {
             T temp = i.getData();
