@@ -58,3 +58,14 @@ th { background-color: #0056b3; color: white; }
 
 .btn-ver { margin-top: 20px; width: 100%; background-color: #28a745; }
 .btn-ver:hover { background-color: #218838; }
+
+@media print {
+    .no-imprimir, button, nav {
+        display: none !important;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+}

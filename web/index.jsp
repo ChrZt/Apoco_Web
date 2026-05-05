@@ -20,12 +20,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="JS/apoco.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Analisis de Ordenamiento APOCO</title>
     <link rel="stylesheet" type="text/css" href="CSS/style.css">
 </head>
 <body>
 
+    <% if (request.getAttribute("organizacionCompleta") != null) { %>
+    <script>imprimirResultado()</script>
+    <% } %>
     <!-- Formulario de controles -->
     <form action="ApocoServlet" method="POST" class="controles">
         <div class="grupo">
@@ -133,17 +137,5 @@
         </table>
     </div>
     <% } %>
-
-    <!-- Script isy para hacer funcionar el boton -->
-    <script>
-        function mostrarLista() {
-            var div = document.getElementById("miLista");
-            if (div.style.display === "none" || div.style.display === "") {
-                div.style.display = "block";
-            } else {
-                div.style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>

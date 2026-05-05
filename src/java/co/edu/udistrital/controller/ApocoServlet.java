@@ -58,8 +58,8 @@ public class ApocoServlet extends HttpServlet {
         Comparator<Politician> comparator = new Comparator<Politician>() {
             @Override
             public int compare(Politician p1, Politician p2) {
-                return Double.compare(p1.getMoneyToSteal(),
-                        p2.getMoneyToSteal());
+                return Double.compare(p2.getMoneyToSteal(),
+                        p1.getMoneyToSteal());
             }
         };
 
@@ -93,6 +93,7 @@ public class ApocoServlet extends HttpServlet {
         request.setAttribute("listaOrdenada", finalSortedList);
         request.setAttribute("currentSize", size);
         request.setAttribute("currentAlgo", algorithmParam);
+        request.setAttribute("organizacionCompleta", true);
 
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
