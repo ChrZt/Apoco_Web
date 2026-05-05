@@ -1,7 +1,7 @@
 package co.edu.udistrital.controller;
 
-import co.edu.udistrital.model.sort.usecases.ApocoDTO;
-import co.edu.udistrital.model.sort.usecases.ApocoUseCase;
+import co.edu.udistrital.model.usecases.ApocoDTO;
+import co.edu.udistrital.model.usecases.ApocoUseCase;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

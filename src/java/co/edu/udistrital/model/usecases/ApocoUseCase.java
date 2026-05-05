@@ -1,4 +1,4 @@
-package co.edu.udistrital.model.sort.usecases;
+package co.edu.udistrital.model.usecases;
 
 import co.edu.udistrital.model.entities.Politician;
 import co.edu.udistrital.model.generator.DataPoliticianGenerator;
