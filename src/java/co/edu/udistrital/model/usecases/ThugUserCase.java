@@ -15,6 +15,15 @@ import java.util.Comparator;
  */
 public class ThugUserCase {
 
+    /**
+     * Metodo que procesa lo requerido de java en el formulario, crea la lista y organiza la lista
+     * 
+     * @param requestedRows La cantidad de filas de la matriz
+     * @param requestedColumns La cantidad de columnas de la matriz
+     * @param selectedSort El o los algoritmos de sorteo seleccionados para la peticion
+     * 
+     * @return El DTO de comunicacion con el servlet (Objeto de transferencia de datos)
+     */
     public ThugDTO processRequest(String requestedRows, String requestedColumns, String selectedSort) {
 
         // Obtener y verificar el numero de filas y columnas
