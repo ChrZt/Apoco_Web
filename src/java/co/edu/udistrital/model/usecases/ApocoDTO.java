@@ -27,24 +27,27 @@ public class ApocoDTO {
     }
 
     /**
-     *
-     * @return
+     * Getter de las iteraciones que tuvo cada algoritmo
+     * 
+     * @return el numero de iteraciones por cada sorteo usado
      */
     public int[] getIterations() {
         return iterations;
     }
 
     /**
-     *
-     * @return
+     * Getter de la lista ordenada
+     * 
+     * @return la lista ordenada de todos lo politicos
      */
     public SimpleList<Politician> getOrderedList() {
         return orderedList;
     }
 
     /**
-     *
-     * @return
+     * Getter del size
+     * 
+     * @return del numero de politicos usados en el algoritmo
      */
     public int getUsedSize() {
         return usedSize;
