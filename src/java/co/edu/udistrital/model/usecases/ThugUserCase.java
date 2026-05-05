@@ -44,7 +44,7 @@ public class ThugUserCase {
 
         // Funcion lamda de criterios de comparacion, primero por edad, y despues por dinero robado si son iguales, sobreescribe un metodo superior
         Comparator<Thug> comparator = (Thug t1, Thug t2) -> {
-            int answer = Integer.compare(t2.getAge(), t1.getAge());
+            int answer = Integer.compare(t1.getAge(), t2.getAge());
 
             if (answer != 0) {
                 return answer;
