@@ -55,7 +55,7 @@ public class ThugServlet extends HttpServlet {
         request.setAttribute("organizacionCompleta", true);
 
         // Redoreccion
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("hampones.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
