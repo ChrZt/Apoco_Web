@@ -47,6 +47,11 @@ public class SimpleList<T> {
         return head;
     }
 
+    /**
+     * Devuelve el nodo que se encuentre al lado de la cabeza
+     * 
+     * @return el nodo despues de cabeza
+     */
     public Node<T> getNextNodeToHead() {
         Node<T> head = getHead();
         return head.getNext();
