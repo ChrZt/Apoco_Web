@@ -1,7 +1,7 @@
 package co.edu.udistrital.model.sort.usecases;
 
 import co.edu.udistrital.model.entities.Politician;
-import co.edu.udistrital.model.generator.DataGenerator;
+import co.edu.udistrital.model.generator.DataPoliticianGenerator;
 import co.edu.udistrital.model.sort.*;
 import co.edu.udistrital.model.structures.Node;
 import co.edu.udistrital.model.structures.SimpleList;
@@ -34,7 +34,7 @@ public class ApocoUseCase {
         }
 
         // 2. Generar los datos
-        SimpleList<Politician> listP = DataGenerator.generatePoliticians(size);
+        SimpleList<Politician> listP = DataPoliticianGenerator.generatePoliticians(size);
 
         // 3. Preparar el comparador (Lambda descendente por dinero a robar)
         Comparator<Politician> comparadorDescendente = (Politician p1, Politician p2)
