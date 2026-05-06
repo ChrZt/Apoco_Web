@@ -36,7 +36,7 @@ public class DataPoliticianGenerator {
         
         for (int i = 0; i < size; i++) {
             
-            randomUtility = ran.nextInt(1);
+            randomUtility = ran.nextInt(2);
             
             String name = (randomUtility == 0) ? menNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Politico Corrupto No." + (i + 1) + ")" : womenNames[ran.nextInt(10)] + " " + lastNames[ran.nextInt(10)] + " " + "(Politico Corrupto No." + (i + 1) + ")" ;
             ranMoney = Math.round((minMoney + (maxMoney - minMoney) * ran.nextDouble()) * 100) / 100;
